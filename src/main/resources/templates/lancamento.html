@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Realizar Lançamento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<div class="h-100 bg-success p-2">
+    <img src="/icon/logomanager.png" alt="logomanager" style="width: 70px; height: 70px;">
+    <a class="h6 text-decoration-none" th:href="@{/}" style="color: white; margin: 0 15px;">Dashboard</a>
+    <a class="h6 text-decoration-none" th:href="@{/lancamento}" style="color: white; margin: 0 15px;">Realizar
+        Lançamento</a>
+    <a class="h6 text-decoration-none" th:href="@{/categoria}" style="color: white; margin: 0 15px;">Categoria</a>
+    <a class="h6 text-decoration-none" th:href="@{/historicotransacao}" style="color: white; margin: 0 15px;">Histórico
+        de Transação</a>
+</div>
+<!--t, r, b, l-->
+<div class="container" style="padding: 7px 30px 7px 30px">
+    <div>
+        <h2 style="color: #198754; padding: 7px 10px 7px 10px;">Inserir Nova Transação</h2>
+    </div>
+    <form id="transacaoForm" method="post">
+        <div class="border border-secondary rounded">
+            <div>
+                <h3 class="bg-success text-white p-2 rounded"> Dados da Transação</h3>
+            </div>
+            <div class="row m-3">
+                <label class="col-sm-4 col-form-label">Valor: </label>
+                <div class="col-sm-8">
+                    <input type="number" id="quantia" class="form-control" required>
+                </div>
+            </div>
+            <div class="row m-3">
+                <label class="col-sm-4 col-form-label">Data: </label>
+                <div class="col-sm-8">
+                    <input type="date" id="dtTransacao" class="form-control" required>
+                </div>
+            </div>
+            <div class="row m-3">
+                <label class="col-sm-4 col-form-label">Categoria: </label>
+                <div class="col-sm-8">
+                    <select class="form-select" id="categoria" name="categoria" required>
+                        <!-- Categorias serão preenchidas dinamicamente aqui -->
+                    </select>
+                </div>
+            </div>
+            <div class="row m-3">
+                <label class="col-sm-4 col-form-label">Descrição: </label>
+                <div class="col-sm-8">
+                    <input type="text" id="descricao" class="form-control" required>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-12 text-start">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/script/scriptRecebeValores.js"></script>
+</body>
+</html>

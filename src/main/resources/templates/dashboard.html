@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DASHBOARD</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="/style/fixed.css"/>
+</head>
+<body>
+<div class="h-100 bg-success p-2">
+    <img src="/icon/logomanager.png" alt="logomanager" style="width: 70px; height: 70px;">
+    <a class="h6 text-decoration-none" th:href="@{/}" style="color: white; margin: 0 15px;">Dashboard</a>
+    <a class="h6 text-decoration-none" th:href="@{/lancamento}" style="color: white; margin: 0 15px;">Realizar Lançamento</a>
+    <a class="h6 text-decoration-none" th:href="@{/categoria}" style="color: white; margin: 0 15px;">Categoria</a>
+    <a class="h6 text-decoration-none" th:href="@{/historicotransacao}" style="color: white; margin: 0 15px;">Histórico de Transação</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col bg-success text-white rounded p-3 mx-2" style="padding: 20px; margin: 20px;">
+            <h3>Receita</h3>
+            <h6 id="receitasValor">Carregando...</h6>
+        </div>
+        <div class="col bg-danger text-white rounded p-3 mx-2" style="padding: 20px; margin: 20px; color: white;">
+            <h3>Despesa</h3>
+            <h6 id="despesasValor">Carregando...</h6>
+        </div>
+        <div class="col bg-primary text-white rounded p-3 mx-2" style="padding: 20px; margin: 20px; color: white;">
+            <h3>Total Líquido</h3>
+            <h6 id="saldoValor">Carregando...</h6>
+        </div>
+    </div>
+    <div>
+        <h3 style="color: #198754; padding: 0 10px 10px 10px;">Últimos Lançamentos</h3>
+    </div>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="text-white" style="background-color: #198754">Descrição</th>
+                <th class="text-white" style="background-color: #198754">Categoria</th>
+                <th class="text-white" style="background-color: #198754">Valor</th>
+                <th class="text-white" style="background-color: #198754">Data</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button id="paginaAnterior">Anterior</button>
+        <span id="paginaAtual">1</span>/<span id="totalPaginas">1</span>
+        <button id="proximaPagina">Próximo</button>
+    </div>
+</div>
+</body>
+<script src="/script/scriptRecebeValores.js"></script>
+</html>
