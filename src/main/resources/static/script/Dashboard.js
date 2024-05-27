@@ -1,4 +1,4 @@
-fetch('http://localhost:4848/financeiro/transacao/transacoes/despesas')
+fetch('http://192.168.0.188:4848/financeiro/transacao/transacoes/despesas')
     .then(response => response.json())
     .then(data => {
         // Arredonda o número para duas casas decimais
@@ -6,7 +6,7 @@ fetch('http://localhost:4848/financeiro/transacao/transacoes/despesas')
         document.getElementById('despesasValor').textContent = formattedData;
     });
 
-fetch('http://localhost:4848/financeiro/transacao/transacoes/receitas')
+fetch('http://192.168.0.188:4848/financeiro/transacao/transacoes/receitas')
     .then(response => response.json())
     .then(data => {
         // Arredonda o número para duas casas decimais
@@ -14,7 +14,7 @@ fetch('http://localhost:4848/financeiro/transacao/transacoes/receitas')
         document.getElementById('receitasValor').textContent = formattedData;
     });
 
-fetch('http://localhost:4848/financeiro/transacao/transacoes/saldo')
+fetch('http://192.168.0.188:4848/financeiro/transacao/transacoes/saldo')
     .then(response => response.json())
     .then(data => {
         // Arredonda o número para duas casas decimais
@@ -28,7 +28,7 @@ let dados; // Variável para armazenar os dados da API
 
 // Função para buscar dados da API e preencher a tabela
 function buscarDadosEAtualizarTabela() {
-    fetch('http://localhost:4848/financeiro/transacao/getAll')
+    fetch('http://192.168.0.188:4848/financeiro/transacao/getAll')
         .then(response => response.json())
         .then(data => {
             dados = data; // Armazena os dados globalmente

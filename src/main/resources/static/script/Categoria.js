@@ -9,7 +9,7 @@ document.getElementById("categoriaForm").addEventListener("submit", function (ev
         tipo: tipo
     };
 
-    fetch('http://localhost:4848/financeiro/categoria/post', {
+    fetch('http://192.168.0.188:4848/financeiro/categoria/post', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ document.getElementById("categoriaForm").addEventListener("submit", function (ev
 
 document.addEventListener("DOMContentLoaded", function () {
     function buscaDadosEAtualizaTabelaCategorias() {
-        fetch('http://localhost:4848/financeiro/categoria/getAll')
+        fetch('http://192.168.0.188:4848/financeiro/categoria/getAll')
             .then(response => response.json())
             .then(data => {
                 dados = data;
@@ -73,7 +73,7 @@ function excluirCategoria(id) {
     console.log("Excluir categoria com ID:", id);
 
     if (confirm("Tem certeza que deseja deletar essa categoria?")) {
-        fetch(`http://localhost:4848/financeiro/categoria/delete/${id}`, {
+        fetch(`http://192.168.0.188:4848/financeiro/categoria/delete/${id}`, {
             method: 'DELETE'
         })
             .then(response => {

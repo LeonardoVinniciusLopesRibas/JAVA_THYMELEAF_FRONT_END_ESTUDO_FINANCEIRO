@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Função para carregar categorias da API e preencher o select de categorias
     function carregarCategorias() {
-        fetch("http://localhost:4848/financeiro/categoria/getAll")
+        fetch("http://192.168.0.188:4848/financeiro/categoria/getAll")
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Erro ao carregar categorias: " + response.statusText);
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         console.log("Transação a ser enviada:", transacao); // Para depuração
 
-        fetch("http://localhost:4848/financeiro/transacao/post", {
+        fetch("http://192.168.0.188:4848/financeiro/transacao/post", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
