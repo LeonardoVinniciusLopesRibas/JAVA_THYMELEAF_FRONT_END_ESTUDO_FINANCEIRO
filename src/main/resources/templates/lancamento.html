@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Realizar Lançamento</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
 
 <div class="h-100 bg-success p-2">
     <img src="/icon/logomanager.png" alt="logomanager" style="width: 70px; height: 70px;">
-    <a class="h6 text-decoration-none" th:href="@{/}" style="color: white; margin: 0 15px;">Dashboard</a>
-    <a class="h6 text-decoration-none" th:href="@{/lancamento}" style="color: white; margin: 0 15px;">Realizar
-        Lançamento</a>
-    <a class="h6 text-decoration-none" th:href="@{/categoria}" style="color: white; margin: 0 15px;">Categoria</a>
-    <a class="h6 text-decoration-none" th:href="@{/historicotransacao}" style="color: white; margin: 0 15px;">Histórico
-        de Transação</a>
+    <a class="h6 text-decoration-none" href="/" style="color: white; margin: 0 15px;">Dashboard</a>
+    <a class="h6 text-decoration-none" href="/lancamento" style="color: white; margin: 0 15px;">Realizar Lançamento</a>
+    <a class="h6 text-decoration-none" href="/categoria" style="color: white; margin: 0 15px;">Categoria</a>
+    <a class="h6 text-decoration-none" href="/historicotransacao" style="color: white; margin: 0 15px;">Histórico de Transação</a>
 </div>
-<!--t, r, b, l-->
 <div class="container" style="padding: 7px 30px 7px 30px">
     <div>
         <h2 style="color: #198754; padding: 7px 10px 7px 10px;">Inserir Nova Transação</h2>
@@ -41,7 +38,7 @@
             <div class="row m-3">
                 <label class="col-sm-4 col-form-label">Categoria: </label>
                 <div class="col-sm-8">
-                    <select class="form-select" id="categoria" name="categoria" required>
+                    <select class="form-select" id="categoria" name="option" required>
                         <!-- Categorias serão preenchidas dinamicamente aqui -->
                     </select>
                 </div>
@@ -60,6 +57,6 @@
         </div>
     </form>
 </div>
-<script src="/script/scriptRecebeValores.js"></script>
+<script src="/script/Lancamento.js"></script>
 </body>
 </html>
