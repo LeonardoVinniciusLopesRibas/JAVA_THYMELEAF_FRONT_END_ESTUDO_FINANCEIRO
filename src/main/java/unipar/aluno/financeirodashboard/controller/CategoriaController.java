@@ -12,5 +12,11 @@ public class CategoriaController {
         return "categoria";
     }
 
+    @GetMapping("/categoria/editar")
+    public String showEditCategorias(){
+        System.out.println("EDIÇÃO DE CATEGORIA ABERTA");
+        return "editarCategoria";
+    }
+
 
 }

@@ -1,4 +1,3 @@
-
 document.getElementById("categoriaForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -26,6 +25,7 @@ document.getElementById("categoriaForm").addEventListener("submit", function (ev
         .then(data => {
             console.log('Dados enviados com sucesso:', data);
             alert("Categoria salva com sucesso!");
+            location.reload();
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -33,24 +33,17 @@ document.getElementById("categoriaForm").addEventListener("submit", function (ev
         });
 });
 
-
-//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-
-
-
-document.addEventListener("DOMContentLoaded", function (){
-    function buscaDadosEAtualizaTabelaCategorias(){
+document.addEventListener("DOMContentLoaded", function () {
+    function buscaDadosEAtualizaTabelaCategorias() {
         fetch('http://localhost:4848/financeiro/categoria/getAll')
             .then(response => response.json())
             .then(data => {
                 dados = data;
-                console.log(data);
-                console.log(dados);
                 atualizaTabelaCategorias();
             })
     }
-    function atualizaTabelaCategorias(){
+
+    function atualizaTabelaCategorias() {
         let tbody = document.querySelector('tbody');
         tbody.innerHTML = '';
 
@@ -61,24 +54,46 @@ document.addEventListener("DOMContentLoaded", function (){
                 <td>${categoria.categoria}</td>
                 <td>${categoria.tipo}</td>
                 <td>
-                    <button class="btn btn-primary" onclick="editarCategoria(${categoria.id})">Editar</button>
-                    <button class="btn btn-danger" onclick="excluirCategoria(${categoria.id})">Excluir</button>
+                    <button class="btn btn-primary float-end" style="margin-left: 5px" onclick="editarCategoria(${categoria.id})">Editar</button>
+                    <button class="btn btn-danger float-end" style="margin-left: 5px" onclick="excluirCategoria(${categoria.id})">Excluir</button>
                 </td>
             </tr>
-        `;
+            `;
+
             tbody.innerHTML += row;
         });
     }
 
-    function editarCategoria(id) {
-        // Lógica para editar a categoria com o ID fornecido
-        console.log("Editar categoria com ID:", id);
-    }
 
-    function excluirCategoria(id) {
-        // Lógica para excluir a categoria com o ID fornecido
-        console.log("Excluir categoria com ID:", id);
-    }
+
     buscaDadosEAtualizaTabelaCategorias();
-})
+});
 
+function excluirCategoria(id) {
+    console.log("Excluir categoria com ID:", id);
+
+    if (confirm("Tem certeza que deseja deletar essa categoria?")) {
+        fetch(`http://localhost:4848/financeiro/categoria/delete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao excluir categoria');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Categoria excluída com sucesso:', data);
+                alert("Categoria excluída com sucesso!");
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert("Erro ao excluir categoria: " + error.message);
+            });
+    }
+}
+
+function editarCategoria(id) {
+    console.log("Editar categoria com ID:", id);
+}
