@@ -7,58 +7,69 @@
     <link rel="stylesheet" type="text/css" href="/style/fixed.css"/>
     <link rel="icon" href="/icon/logomanager.png" type="image/png"/>
     <link rel="apple-touch-icon" href="/icon/logomanager.png" type="image/png"/>
-
 </head>
 <body>
-<div class="h-100 bg-success p-2">
-    <img src="/icon/logomanager.png" alt="logomanager" style="width: 70px; height: 70px;">
-    <a class="h6 text-decoration-none" th:href="@{/}" style="color: white; margin: 0 15px;">Dashboard</a>
-    <a class="h6 text-decoration-none" th:href="@{/lancamento}" style="color: white; margin: 0 15px;">Realizar
-        Lançamento</a>
-    <a class="h6 text-decoration-none" th:href="@{/categoria}" style="color: white; margin: 0 15px;">Categoria</a>
-    <a class="h6 text-decoration-none" th:href="@{/historicotransacao}" style="color: white; margin: 0 15px;">Histórico
-        de Transação</a>
+<div class="bg-success p-2 d-flex align-items-center">
+    <img src="/icon/logomanager.png" alt="logomanager" class="me-3" style="width: 70px; height: 70px;">
+    <nav class="d-flex flex-wrap">
+        <a class="h6 text-decoration-none text-white me-3" th:href="@{/}">Dashboard</a>
+        <a class="h6 text-decoration-none text-white me-3" th:href="@{/lancamento}">Realizar Lançamento</a>
+        <a class="h6 text-decoration-none text-white me-3" th:href="@{/categoria}">Categoria</a>
+        <a class="h6 text-decoration-none text-white me-3" th:href="@{/historicotransacao}">Histórico de Transação</a>
+    </nav>
 </div>
 
-<div class="container">
+<div class="container mt-4">
     <div class="row">
-        <div class="col bg-success text-white rounded p-3 mx-2" style="padding: 20px; margin: 20px;">
-            <h3>Receita</h3>
-            <h6 id="receitasValor">Carregando...</h6>
+        <div class="col-md-4 mb-4">
+            <div class="bg-success text-white rounded p-3">
+                <h3>Receita</h3>
+                <h6 id="receitasValor">Carregando...</h6>
+            </div>
         </div>
-        <div class="col bg-danger text-white rounded p-3 mx-2" style="padding: 20px; margin: 20px; color: white;">
-            <h3>Despesa</h3>
-            <h6 id="despesasValor">Carregando...</h6>
+        <div class="col-md-4 mb-4">
+            <div class="bg-danger text-white rounded p-3">
+                <h3>Despesa</h3>
+                <h6 id="despesasValor">Carregando...</h6>
+            </div>
         </div>
-        <div class="col bg-primary text-white rounded p-3 mx-2" style="padding: 20px; margin: 20px; color: white;">
-            <h3>Total Líquido</h3>
-            <h6 id="saldoValor">Carregando...</h6>
+        <div class="col-md-4 mb-4">
+            <div class="bg-primary text-white rounded p-3">
+                <h3>Total Líquido</h3>
+                <h6 id="saldoValor">Carregando...</h6>
+            </div>
         </div>
     </div>
+
     <div>
-        <h3 style="color: #198754; padding: 0 10px 10px 10px;">Últimos Lançamentos</h3>
+        <h3 class="text-success">Últimos Lançamentos</h3>
     </div>
     <div>
         <table class="table table-bordered">
             <thead>
-            <tr>
-                <th class="text-white" style="background-color: #198754">Descrição</th>
-                <th class="text-white" style="background-color: #198754">Categoria</th>
-                <th class="text-white" style="background-color: #198754">Valor</th>
-                <th class="text-white" style="background-color: #198754">Data</th>
+            <tr class="bg-success text-white">
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Data</th>
             </tr>
             </thead>
             <tbody>
-
+            <!-- Linhas da tabela serão inseridas aqui -->
             </tbody>
         </table>
     </div>
-    <div>
-        <button id="paginaAnterior">Anterior</button>
-        <span id="paginaAtual">1</span>/<span id="totalPaginas">1</span>
-        <button id="proximaPagina">Próximo</button>
+    <div class="d-flex justify-content-between">
+        <button id="paginaAnterior" class="btn btn-secondary">Anterior</button>
+        <div>
+            <span id="paginaAtual">1</span>/<span id="totalPaginas">1</span>
+        </div>
+        <button id="proximaPagina" class="btn btn-secondary">Próximo</button>
     </div>
 </div>
-</body>
+
+<!-- Scripts -->
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <script src="/script/Dashboard.js"></script>
+</body>
 </html>
