@@ -96,4 +96,8 @@ function excluirCategoria(id) {
 
 function editarCategoria(id) {
     console.log("Editar categoria com ID:", id);
+    window.location.href = `/categoria/editar?id=${id}`;
 }
+
+
+
